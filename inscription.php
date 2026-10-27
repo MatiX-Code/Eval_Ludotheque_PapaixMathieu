@@ -1,4 +1,9 @@
 <?php
+// Démarrage de la session (obligatoire en tout premier)
+session_start();
+
+// Inclusion du fichier utilitaire
+include('utils/utils.php');
 
 $message = '';
 
@@ -12,7 +17,7 @@ if (isset($_POST['envoyer'])) {
             if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
 
                 // 3. Vérification de la longueur du mot de passe (au moins 12 caractères)
-                if (mb_strlen($_POST['password'],'UTF_8') >=12) {
+                if (mb_strlen($_POST['password'],'UTF-8') >=12) {
                         // 4. Vérification que le mot de passe et la confirmation sont identiques
                         if ($_POST['password']== $_POST['confirm_password']) {
                             // 5. Nettoyage des données avec trim
@@ -21,7 +26,6 @@ if (isset($_POST['envoyer'])) {
                                 $email = trim($_POST['email']);
                                 //6. Hasher le mdp
                                 $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-
 
                                     // 7. Vérification si l'email n'est pas déjà utilisé par un autre membre
                                  // Connexion à la base de données
@@ -56,17 +60,15 @@ if (isset($_POST['envoyer'])) {
                                             $request->execute();
 
                                             //D. Message de confirmation
-                                            $message = "L'utilisateur a été enregistré :  {$prenom} {$nom} - {$email}";
+                                            $message = "L'utilisateur a été enregistré :  {$prenom} {$nom} {$email}";
 
                                         }else{
                                             // Message d'erreur
                                             $message = "Cette email est déjà utilisé par un autre compte.";
                                         }
-                                        } catch (Exception $error) {
-                                        echo $error->getMessage();
+                                        } catch (EXCEPTION $error) {
+                                        echo ($error->getMessage());
                                         }
-
-
                         }else{
                              $message = "Le mot de passe et sa confirmation ne correspondent pas.";
                         }
@@ -80,23 +82,23 @@ if (isset($_POST['envoyer'])) {
             $message ="Merci de remplir tous les champs";
     }
 }
-
+include('includes/header.php');
 ?>
 <main>
     <h2>Inscription à notre super site</h2>
     <section>
-        <form action="inscription.php" method="POST">
+        <form action="" method="POST">
                 <label for="prenom">Prénom :</label>
-                <input type="text" id="prenom" name="prenom" value="<?php echo htmlspecialchars($_POST['prenom'] ?? ''); ?>" required>
+                <input type="text" id="prenom" name="prenom" value="<?php echo htmlspecialchars($_POST['prenom'] ?? ''); ?>" required >
                 <label for="nom">Nom :</label>
-                <input type="text" id="nom" name="nom" value="<?php echo htmlspecialchars($_POST['nom'] ?? ''); ?>" required>
+                <input type="text" id="nom" name="nom" value="<?php echo htmlspecialchars($_POST['nom'] ?? ''); ?>" required >
                 <label for="email">Email :</label>
                 <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($_POST['email'] ?? ''); ?>" required>
                 <label for="password">Mot de passe (12 caractères min.) :</label>
                 <input type="password" id="password" name="password" required>
                 <label for="confirm_password">Confirmation du mot de passe :</label>
-                <input type="password" id="confirm_password" name="confirm_password" required>
-                <button type="submit" name="envoyer">S'inscrire</button>
+                <input type="password" id="confirm_password" name="confirm_password"required >
+                <input type="submit" name="envoyer" value="S'inscrire">
         </form>
         <p>
         <?php

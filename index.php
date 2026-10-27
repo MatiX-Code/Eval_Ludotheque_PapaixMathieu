@@ -38,6 +38,7 @@ include('includes/header.php');
 
 <main>
     <h2>Liste des jeux de la Ludothèque</h2>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQEFVzpZPBm4wSGJoLbowT2XBlnweECw8hAFH-cogG7A&s=10" alt="image ludothèque jeu">
 
     <?php if (isset($erreurBDD)): ?>
         <p style="color: red;"><?php echo htmlspecialchars($erreurBDD); ?></p>

@@ -21,9 +21,9 @@ if (isset($_POST['envoyer'])) {
                         // 4. Vérification que le mot de passe et la confirmation sont identiques
                         if ($_POST['password']== $_POST['confirm_password']) {
                             // 5. Nettoyage des données avec trim
-                                $prenom = trim($_POST['prenom']);
-                                $nom = trim($_POST['nom']);
-                                $email = trim($_POST['email']);
+                                $prenom = trim(strip_tags(stripslashes(htmlentities($_POST['prenom']))));
+                                $nom = trim(strip_tags(stripslashes(htmlentities($_POST['nom']))));
+                                $email = trim(strip_tags(stripslashes(htmlentities($_POST['email']))));
                                 //6. Hasher le mdp
                                 $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
@@ -98,7 +98,7 @@ include('includes/header.php');
                 <input type="password" id="password" name="password" required>
                 <label for="confirm_password">Confirmation du mot de passe :</label>
                 <input type="password" id="confirm_password" name="confirm_password"required >
-                <input type="submit" name="envoyer" value="S'inscrire">
+                <input class="inscrire" type="submit" name="envoyer" value="S'inscrire">
         </form>
         <p>
         <?php

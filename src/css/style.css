@@ -51,6 +51,18 @@ main {
     align-items: center;
     border: #FFA500 5px solid;
         }
+img{
+    width: 300px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 
+        0 0 5px #00aaff,    /* Ombre interne/intense */
+        0 0 20px #00aaff,   /* Halo moyen */
+        0 0 40px rgba(0, 170, 255, 0.5); /* Halo externe diffus */
+    margin-bottom: 40px;
+    border: 5px solid #FFA500;
+    align-self:center;
+}
 h1 {
     font-family:'Arial Black', sans-serif;
     background-color: #ffff;
@@ -62,7 +74,7 @@ h1 {
         0 0 10px #FFA500,    /* Ombre interne/intense */
         0 0 30px #FFA500,  /* Halo moyen */
         0 0 40px white; /* Halo externe diffus */
-        }
+    }
 
 section {
     padding: 20px;
@@ -71,7 +83,10 @@ section {
     border-radius: 40px;
     background-color: white;
     font-family: 'Comic Sans MS', cursive, sans-serif;
-    box-shadow: 10px 10px 0px rgba(17, 16, 16, 0.5);
+    box-shadow: 
+        0 0 5px #00aaff,    /* Ombre interne/intense */
+        0 0 20px #00aaff,   /* Halo moyen */
+        0 0 40px rgba(0, 170, 255, 0.5); /* Halo externe diffus */;
     display: flex;
     flex-direction: column;
             
@@ -84,7 +99,10 @@ h2{
     color: #000000;
     padding: 20px;
     border-radius: 20px;
-    box-shadow: 5px 5px 0px rgba(17, 16, 16, 0.5);
+    box-shadow: 
+        0 0 5px #00aaff,    /* Ombre interne/intense */
+        0 0 20px #00aaff,   /* Halo moyen */
+        0 0 40px rgba(0, 170, 255, 0.5); /* Halo externe diffus */;
     margin-bottom: 30px;
         }
 li{
@@ -94,19 +112,23 @@ li{
 }
 p{
     font-weight: bolder;
-    text-decoration: underline;
 }
 form{
     display: flex;
     flex-direction: column;
     margin: 20px;
         }
-input{
+label{
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        margin-bottom: 10px;
+        font-weight: bolder;
+        }
+input, select{
     background-color: #FFA500;
     padding: 10px;
     border: #000000 1px solid;
     border-radius: 25px;
-    margin-bottom: 5px;
+    margin-bottom: 20px;
     font-family: 'Courier New', Courier, monospace;
     font-size: large;
     font-weight: bolder;
@@ -120,8 +142,54 @@ footer{
     border-radius: 45px;
     text-align: center;
 }
-.textFooter{
+.textFooter, .textAccueil{
     color: white;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: xx-large;
+}
+.enregistrement{
+    background-color: #FFA500;
+    padding: 10px;
+    border: #000000 1px solid;
+    border-radius: 25px;
+    margin-bottom: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+    font-weight: bolder;
+    cursor: pointer;
+}
+.enregistrement:hover {
+  background-color: black;
+  color:white;
+}
+.inscrire{
+    background-color: #FFA500;
+    padding: 10px;
+    border: #000000 1px solid;
+    border-radius: 25px;
+    margin-bottom: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+    font-weight: bolder;
+    cursor: pointer;
+}
+.inscrire:hover {
+  background-color: black;
+  color:white;
+}
+.connecter{
+    background-color: #FFA500;
+    padding: 10px;
+    border: #000000 1px solid;
+    border-radius: 25px;
+    margin-bottom: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+    font-weight: bolder;
+    cursor: pointer;
+
+}
+.connecter:hover {
+  background-color: black;
+  color:white;
 }

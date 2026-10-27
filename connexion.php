@@ -18,7 +18,7 @@ try {
 
 // Traitement du formulaire lors de la soumission
 if (isset($_POST['connexion'])) {
-    $email = trim($_POST['email'] ?? '');
+    $email = trim(strip_tags(stripslashes(htmlentities($_POST['email'] ?? ''))));
     $password = $_POST['password'] ?? '';
 
     // Vérification que les champs ne sont pas vides
@@ -68,7 +68,7 @@ include('includes/header.php');
             <label for="password">Mot de passe :</label>
             <input type="password" id="password" name="password" required>
             
-            <input type="submit" name="connexion" value="Se connecter">
+            <input class="connecter" type="submit" name="connexion" value="Se connecter">
         </form>
 
         <?php if (!empty($message)): ?>
